@@ -4,14 +4,14 @@ Utility function for generating HTML/XML DOM trees in the browser.
 
 ## API
 
-Returns [a node](https://developer.mozilla.org/en-US/docs/Web/API/element) with the given name. The rest are var-args, so that:
+The library exposes a single function, `el()`, which returns [a node](https://developer.mozilla.org/en-US/docs/Web/API/element) with the given name. The rest are var-args, so that:
 
  * an object sets attributes as key/value-pairs
  * a string/number/boolean sets the text content of the node
  * a node is treated as a child node
  * an array is treated as a list of child nodes
 
-For convenience, falsy values in the list of children are ignored.
+For convenience, [falsy values](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) in the list of children are ignored.
 
 There's three special cases for the name argument:
 
@@ -82,12 +82,12 @@ produces:
 
 ## Acknowledgements
 
-Hand-crafted by [@jareware](https://twitter.com/jareware)/[jrw.fi](http://jrw.fi/), with the [loving support of Futurice](http://futurice.com/blog/sponsoring-free-time-open-source-activities).
+Hand-crafted by [@jareware](https://twitter.com/jareware) of [jrw.fi](http://jrw.fi/), with the [loving support](http://futurice.com/blog/sponsoring-free-time-open-source-activities) of [Futurice](http://futurice.com/).
 
 ## License
 
-[The MIT license](http://opensource.org/licenses/MIT).
+[The MIT license](http://opensource.org/licenses/MIT)
 
 ## History
 
-Because `el-js` is so tiny, it was originally published in 2014 as [just a gist](https://gist.github.com/jareware/8dc0cc1a948c122edce0). This repository and [npm-presence](https://www.npmjs.com/package/el-js) were added for convenience.
+Because `el-js` is so tiny, it was originally published in 2014 as [just a gist](https://gist.github.com/jareware/8dc0cc1a948c122edce0). This repository and an [npm-presence](https://www.npmjs.com/package/el-js) were added for convenience.

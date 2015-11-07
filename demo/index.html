@@ -7,7 +7,63 @@
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
+
+    <section class="el-js-example">
+
+        <script type="el-js-input">
+            el('div', 'Hello World!')
+        </script>
+
+        <script type="el-js-output">
+            <div>Hello World!</div>
+        </script>
+
+    </section>
+
+    <section class="el-js-example">
+
+        <script type="el-js-input">
+            el('p',
+                el('<!', 'this is a comment'),
+                el('a', 'Click here', {
+                    href: '#some-location'
+                }),
+                el('', 'Text after link')
+            )
+        </script>
+
+        <script type="el-js-output">
+            <p>
+                <!--this is a comment-->
+                <a href="#some-location">Click here</a>
+                Text after link
+            </p>
+        </script>
+
+    </section>
+
+    <section class="el-js-example">
+
+        <script type="el-js-input">
+            el('ul',
+                [ 1, 2, 3, 4, 5 ].map(function(i) {
+                    if (i % 2) return el('li', i)
+                })
+            )
+        </script>
+
+        <script type="el-js-output">
+            <ul>
+                <li>1</li>
+                <li>3</li>
+                <li>5</li>
+            </ul>
+        </script>
+
+    </section>
+
     <script src="el.js"></script>
     <script src="index.js"></script>
+
 </body>
 </html>

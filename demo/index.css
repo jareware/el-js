@@ -1,0 +1,17 @@
+output {
+    display: none;
+}
+
+section {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.el-js-success {
+    background: darkgreen;
+}
+
+.el-js-failure {
+    background: darkred;
+    color: white;
+}

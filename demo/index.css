@@ -21,10 +21,30 @@ section {
 }
 
 .el-js-success {
-    background: darkgreen;
+    /*background: darkgreen;*/
 }
 
 .el-js-failure {
     background: darkred;
     color: white;
+}
+
+#el-js-success,
+#el-js-failure {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border-radius: 100%;
+    background: darkgreen;
+    border: 2px solid green;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 30px;
+}
+#el-js-failure {
+    background: darkred;
+    border-color: red;
 }

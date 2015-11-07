@@ -8,7 +8,12 @@
         return domNode.innerHTML.replace(/\s+/g, '');
     }
 
+    var runCount = 0;
+    var successCount = 0;
+
     $('.el-js-example').forEach(function(exampleEl) {
+
+        runCount++;
 
         var inputEl = exampleEl.querySelector('script[type="el-js-input"]');
         var expectedOutputEl = exampleEl.querySelector('script[type="el-js-output"]');
@@ -23,7 +28,9 @@
 
         exampleEl.className += success ? ' el-js-success' : ' el-js-failure';
 
-        if (!success) {
+        if (success) {
+            successCount++;
+        } else {
             el(exampleEl,
                 el('pre',
                     'Running this code:\n\n' +
@@ -37,5 +44,11 @@
         }
 
     });
+
+    el(document.body,
+        el('div', { id: successCount === runCount ? 'el-js-success' : 'el-js-failure' },
+            successCount + '/' + runCount
+        )
+    );
 
 })();

@@ -1,3 +1,9 @@
+if (typeof module !== 'undefined') {
+    module.exports = el;
+} else if (typeof window !== 'undefined') {
+    window.el = el;
+}
+
 function el(name) {
     function isNode(n) {
         return typeof n === 'object' && n.nodeType && n.nodeName;

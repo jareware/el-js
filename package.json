@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "watchify *.spec.js -v -o test/suite.js & livereload test/ & http-server test/ -o",
     "deploy-demo": "git stash && cp el.js demo && cp -r demo demo-temp && git checkout gh-pages && mv demo-temp/* . && rmdir demo-temp && git commit -am 'Automatic gh-pages deploy' && git push && git checkout -"
   },
   "repository": {
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/jareware/el-js/issues"
   },
-  "homepage": "https://github.com/jareware/el-js"
+  "homepage": "https://github.com/jareware/el-js",
+  "devDependencies": {
+    "http-server": "0.8.5",
+    "livereload": "0.4.0",
+    "mocha": "2.3.3",
+    "watchify": "3.6.0"
+  }
 }

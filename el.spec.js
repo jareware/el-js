@@ -5,7 +5,7 @@ function assertDomContent(elTree, expected) {
     el(outputEl, elTree);
     var actual = outputEl.innerHTML.replace(/\s+/g, ' ').trim();
     if (actual === expected) return;
-    throw new Error('Unexpected element output; to debug this, break on errors and inspect the DOM');
+    throw new Error('\n\nExpected: ' + expected + '\n  Actual: ' + actual + '\n\n');
 }
 
 function resetOutputEl() {
@@ -20,6 +20,19 @@ describe('el.js', function() {
         assertDomContent(
             el('div', 'Hello World'),
             '<div>Hello World</div>'
+        );
+    });
+
+    it('produces more complex elements', function() {
+        assertDomContent(
+            el('p', { class: 'cool' },
+                el('<!', 'this is a comment'),
+                el('a', 'Click here', {
+                    href: '#some-location'
+                }),
+                el('', 'Text after link')
+            ),
+            '<p class="cool"><!--this is a comment--><a href="#some-location">Click here</a>Text after link</p>'
         );
     });
 

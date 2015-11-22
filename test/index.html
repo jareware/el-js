@@ -16,7 +16,10 @@
         mocha.run();
     </script>
     <script>
-        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+            // Only write out the livereload snippet if we think we're in an environment where it might be available (otherwise we risk hanging e.g. Selenium runners)
+            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+        }
     </script>
 </body>
 </html>

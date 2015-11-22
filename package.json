@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "watchify *.spec.js -v -o test/suite.js & livereload test/ & http-server test/ -o",
-    "deploy-demo": "git stash && cp el.js demo && cp -r demo demo-temp && git checkout gh-pages && mv demo-temp/* . && rmdir demo-temp && git commit -am 'Automatic gh-pages deploy' && git push && git checkout -"
+    "deploy-gh-pages": "git stash && browserify *.spec.js -v -o test/suite.js && cp -r test temp && git checkout gh-pages && mv temp/* . && rm -rf temp && git commit -am 'Automatic gh-pages deploy' && git push origin gh-pages && git checkout -"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jareware/el-js",
   "devDependencies": {
+    "browserify": "12.0.1",
     "http-server": "0.8.5",
     "livereload": "0.4.0",
     "mocha": "2.3.3",

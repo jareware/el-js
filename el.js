@@ -6,7 +6,7 @@ if (typeof module !== 'undefined') {
 
 function el(name) {
     function isNode(n) {
-        return typeof n === 'object' && n.nodeType && n.nodeName;
+        return n && typeof n === 'object' && n.nodeType && n.nodeName;
     }
     if (name === '<!') {
         return document.createComment(arguments[1]);
@@ -22,7 +22,7 @@ function el(name) {
         } else if (typeof arg === 'object') {
             if (isNode(arg)) {
                 node.appendChild(arg);
-            } else {
+            } else if (arg) {
                 Object.keys(arg).forEach(function(key) {
                     node.setAttribute(key, arg[key]);
                 });

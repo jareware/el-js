@@ -1,69 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>el.js</title>
-    <link href="index.css" rel="stylesheet">
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mocha.css" />
 </head>
 <body>
-
-    <section class="el-js-example">
-
-        <script type="el-js-input">
-            el('div', 'Hello World!')
-        </script>
-
-        <script type="el-js-output">
-            <div>Hello World!</div>
-        </script>
-
-    </section>
-
-    <section class="el-js-example">
-
-        <script type="el-js-input">
-            el('p',
-                el('<!', 'this is a comment'),
-                el('a', 'Click here', {
-                    href: '#some-location'
-                }),
-                el('', 'Text after link')
-            )
-        </script>
-
-        <script type="el-js-output">
-            <p>
-                <!--this is a comment-->
-                <a href="#some-location">Click here</a>
-                Text after link
-            </p>
-        </script>
-
-    </section>
-
-    <section class="el-js-example">
-
-        <script type="el-js-input">
-            el('ul',
-                [ 1, 2, 3, 4, 5 ].map(function(i) {
-                    if (i % 2) return el('li', i)
-                })
-            )
-        </script>
-
-        <script type="el-js-output">
-            <ul>
-                <li>1</li>
-                <li>3</li>
-                <li>5</li>
-            </ul>
-        </script>
-
-    </section>
-
-    <script src="el.js"></script>
-    <script src="index.js"></script>
-
+    <div id="mocha"></div>
+    <div id="el-js"></div>
+    <script src="mocha.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script src="suite.js"></script>
+    <script>
+        mocha.run();
+    </script>
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
 </body>
 </html>

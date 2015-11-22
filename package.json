@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "watchify *.spec.js -v -o test/suite.js & livereload test/ & http-server test/ -o",
+    "selenium": "mocha selenium",
     "deploy-gh-pages": "git stash && browserify *.spec.js -v -o test/suite.js && cp -r test temp && git checkout gh-pages && mv temp/* . && rm -rf temp && git commit -am 'Automatic gh-pages deploy' && git push origin gh-pages && git checkout -"
   },
   "repository": {
